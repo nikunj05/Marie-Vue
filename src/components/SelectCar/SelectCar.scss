@@ -1,0 +1,167 @@
+.vc-arrows-container {
+  z-index: auto ;
+}
+.tooltip {
+  position: relative;
+  margin-left: 75%;
+  margin-top: 0.5rem;
+  color:gray
+}
+
+.tooltip-h {
+  position: relative;
+  margin-left: 75%;
+  margin-top: 1rem;
+  color:gray
+}
+
+
+.dropdown select {
+  /* Hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown select, .dropdown::after {
+  height: 20px;
+}
+ 
+.dropdown::after {
+  content: "\25bc"; /* HTML symbol */
+  /* Reposition */
+  color: grey;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  padding: 0 10px;
+  line-height: 40px; /* Vertical center text */
+}
+
+.dropdown select {
+   
+  //-webkit-appearance: none;
+  //-moz-appearance: none;
+ // appearance: none;
+  overflow-y: hidden !important;
+  /* Add some styling */
+  
+  display: block;
+  width: 100%;
+  height: 50px;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  box-shadow: 0 1.5px 3px rgba(36, 35, 35, 0.16), 0 1.5px 3px rgba(39, 39, 39, 0.23); 
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  -ms-word-break: normal;
+  word-break: normal;
+  border-radius: 3px;
+}
+input.activeVariant {
+  color: white !important;
+  background-color: #009688 !important;
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+}
+
+.toggleButton {
+    cursor: pointer;
+    &.active {
+        background-color: #009688 ;
+        color: white !important;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: white;
+          opacity: 1; /* Firefox */
+        }
+    }
+    font-size: 15px;
+    color: rgb(121, 120, 120);
+    padding: 12px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block ;
+    margin: auto;
+    background: #FFF;
+    margin-top: 10px;
+    box-shadow: 0 2px 3px rgba(51, 51, 51, 0.16), 0 2px 3px rgba(51, 51, 51, 0.23); 
+    transition: all 0.3s; 
+    border-radius: 3px;
+ }
+
+ .toggleButton:nth-child(odd) {
+  margin-right: 40px;
+}
+
+.arrowButton{
+  position: relative;
+  display: inline-flex;
+  top: 20px;
+  bottom: 0;
+}
+
+.arrowBody {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+}
+.arrowIcon {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  right: 10px;
+}
+  .custom-loader {
+    
+    animation: loader 1s infinite;
+    display: flex;
+  }
+
+  @-moz-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loader {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+

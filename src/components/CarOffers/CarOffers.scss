@@ -1,0 +1,25 @@
+.subtitle-p p {
+    font-size: 2px !important;
+    padding: 4px;
+    margin-bottom: 4px !important;
+}
+
+.v-application p {
+    margin-bottom: 4px !important;
+}
+
+.tooltip-o {
+    position: relative;
+    margin-left: 70%;
+    margin-top: 0.5rem;
+    color:gray
+  }
+
+  @media only screen and (max-width: 600px) {
+    .tooltip-o {
+        position: relative;
+        margin-left: 45%;
+        margin-top: 0.5rem;
+        color:gray
+      }
+  }

@@ -1,0 +1,298 @@
+
+# For interactive UI use https://editor.swagger.io and import YAML-File
+
+swagger: "2.0"
+info:
+  description: "Description of the backend API for nextmove booking."
+  version: "0.0.3"
+  title: "nextmove booking"
+  license:
+    name: "Closed Source - All rights reserved - CYX mobile KG - © 2020"
+host: "booking.nextmove.de"
+basePath: "/api/v1"
+tags:
+- name: "session"
+  description: "All about user session handling"
+- name: "booking"
+  description: "All about booking vehicles"
+paths:
+  /session/start:
+    post:
+      tags:
+      - "session"
+      summary: "Start new user session"
+      description: ""
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        description: "Empty object for now, later this may be used to submit credentials like username and password."
+        schema:
+          type: "object"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              token:
+                type: "string"
+                format: "byte"
+              timeout:
+                type: "string"
+                format: "date-time"
+  /session/captcha:
+    post:
+      tags:
+      - "session"
+      summary: "Level up the session by solving a captcha"
+      description: ""
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            responseToken:
+              type: "string"
+      responses:
+        200:
+          description: "OK"
+  /booking/models:
+    get:
+      tags:
+      - "booking"
+      summary: "List all available Models"
+      description: ""
+      security:
+      - APIKeyHeader: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              models:
+                type: "array"
+                items:
+                  $ref: "#/definitions/Model"
+  /booking/calcPrice:
+    post:
+      tags:
+      - "booking"
+      summary: "Calculate price for a given time period and vehicle configuration"
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            booking:
+              $ref: "#/definitions/Booking"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              price:
+                type: "integer"
+              alerts:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    title:
+                      type: "string"
+                    subtitle:
+                      type: "string"
+  /booking/checkAvailability:
+    post:
+      tags:
+      - "booking"
+      summary: "Check availability for a given time period and vehicle configuration"
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            booking:
+              $ref: "#/definitions/Booking"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              isAvailable:
+                type: "boolean"
+              bookings:
+                type: "array"
+                items:
+                  allOf:
+                  - $ref: "#/definitions/Booking"
+                  - properties: # extra properties only for dogs
+                      availableBookingOptions:
+                        $ref: "#/definitions/AvailableBookingOptions"
+              
+  /booking/submitBooking:
+    post:
+      tags:
+      - "booking"
+      summary: "Submit a booking with all neccessary details"
+      security:
+      - APIKeyHeader: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          properties:
+            booking:
+              $ref: "#/definitions/Booking"
+            bookingOptions:
+              $ref: "#/definitions/SelectedBookingOptions"
+            bookingDetails:
+              $ref: "#/definitions/BookingDetails"
+      responses:
+        200:
+          description: "OK"
+securityDefinitions:
+   APIKeyHeader:
+     type: apiKey
+     in: header
+     name: X-API-Token
+definitions:
+  Model:
+    type: "object"
+    properties:
+      modelId:
+        type: "string"
+      name:
+        type: "string"
+      pricePerDay:
+        type: "integer"
+      keyImageURL:
+        type: "string"
+      modelVariants:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            modelVariantId:
+              type: "string"
+      equipmentLines:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            equipmentLineId:
+              type: "string"
+      handoverSites:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            handoverSiteId:
+              type: "string"
+      returnSites:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            returnSiteId:
+              type: "string"
+              
+  Booking:
+    type: "object"
+    properties:
+      startDate:
+        type: "string"
+        format: "date"
+      endDate:
+        type: "string"
+        format: "date"
+      handoverSiteId:
+        type: "string"
+      returnSiteId:
+        type: "string"
+      modelId:
+        type: "string"
+      modelVariantId:
+        type: "string"
+      equipmentLineId:
+        type: "string"
+        
+  AvailableBookingOptions:
+    type: "array"
+    items:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        bookingOptionId:
+          type: "string"
+        minAmount:
+          type: "integer"
+        maxAmount:
+          type: "integer"
+        cost:
+          type: "integer"
+          
+  SelectedBookingOptions:
+    type: "array"
+    items:
+      type: "object"
+      properties:
+        bookingOptionId:
+          type: "string"
+        quantitiy:
+          type: "integer"
+          
+  BookingDetails:
+    type: "object"
+    properties:
+      handoverTime:
+        type: "string"
+        format: "time"
+      returnTime:
+        type: "string"
+        format: "time"
+      customNote:
+        type: "string"
+      isCompany:
+        type: "boolean"
+      companyName:
+        type: "string"
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      street:
+        type: "string"
+      postalcode:
+        type: "string"
+      city:
+        type: "string"
+      country:
+        type: "string"
+      
