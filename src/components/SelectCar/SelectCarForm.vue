@@ -1,139 +1,134 @@
 <template>
   <div class="app">
-     
-    <v-form  
-     ref="form"
-     v-model="valid"
-     :lazy-validation="lazy"
-    >
-     
-     <!-- Import and display RentSelected Component. First row in SelectCar page  -->
-     <RentSelected/>
+     <div class="inner-container">
+       <v-form  
+          ref="form"
+          v-model="valid"
+          :lazy-validation="lazy"
+          >
+          
+          <!-- Import and display RentSelected Component. First row in SelectCar page  -->
+          <RentSelected/>
 
-      <!-- Second row -->
-      <v-row>
-        <v-col cols="2" align="center" justify="center" >
-             <v-tooltip left color="grey lighten-5"  >
-                <template v-slot:activator="{ on }" >
-                  <font-awesome-icon class="tooltip" icon="car"  size="2x" v-on="on"/>
-                </template>
-                <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
-             </v-tooltip>
-        </v-col>
+            <!-- Second row -->
+            <v-row>
+              <v-col cols="1" align="center" justify="center" >
+                  <v-tooltip left color="grey lighten-5"  >
+                      <template v-slot:activator="{ on }" >
+                        <font-awesome-icon class="tooltip" icon="car"  size="2x" v-on="on"/>
+                      </template>
+                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
+                  </v-tooltip>
+              </v-col>
 
-       <!-- Display Name of models. getModels comes from vuex store/api -->
-        <v-col cols="10" 
-         class="dropdown">
-         <select  @input="handleSelect($event)"
-          @change="loopModels()"
-          v-model="SelectCarForm.ModelName" required >
-          <option  value="" selected disabled hidden > Einen Model auswählen </option>
-           <option v-for="item in getModels"
-           :key="item.ModelId" :value="item.Name">
-           {{ item.Name }}
-           </option>
-        </select>
+            <!-- Display Name of models. getModels comes from vuex store/api -->
+              <v-col cols="11" 
+              class="dropdown">
+              <select  @input="handleSelect($event)"
+                @change="loopModels()"
+                v-model="SelectCarForm.ModelName" required >
+                <option  value="" selected disabled hidden > Einen Model auswählen </option>
+                <option v-for="item in getModels"
+                :key="item.ModelId" :value="item.Name">
+                {{ item.Name }}
+                </option>
+              </select>
 
-        </v-col>
+              </v-col>
+            </v-row>
+
+          <!-- Import and Display Calendar Component-->  
+          <BookingCalendar  @buttonDisabled="buttonDisabled = $event" 
+          @startDate="startDate = $event"
+          @endDate="endDate = $event" 
+          :range.sync="calendarRange"/>
+              
+            <!-- Fourth row -->
+          <v-row>
+            <v-col cols="1"  align="center" justify="center" >
+                  <v-tooltip left color="grey lighten-5"  >
+                      <template v-slot:activator="{ on }" >
+                        <font-awesome-icon icon="map-marker-alt" class="tooltip" size="2x" v-on="on"/>
+                      </template>
+                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
+                  </v-tooltip>
+
+            <!--Display locations --> 
+            </v-col>
+            <v-col cols="11" class="dropdown" >
+                <select  @input="handleSelect($event)" v-model="SelectCarForm.SiteName" required >
+                <option  value="" selected disabled hidden > Stadt auswählen </option>
+                <option v-for="item in getSites"
+                :key="item.SiteId" :value="item.Name">
+                {{ item.Name }}
+                </option>
+              </select> 
+          </v-col> 
+              
+          </v-row> 
+
+          <!--  row Number 5-->
+          <v-row  v-if="!modelVariant">
+              <v-col cols="1" align="center" justify="center" md="2">
+                <v-tooltip left color="grey lighten-5"  >
+                      <template  v-slot:activator="{ on }" >
+                        <font-awesome-icon icon="car-battery" class="tooltip-h" size="2x" v-on="on"/>
+                      </template>
+                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,</span>
+                  </v-tooltip>
+              </v-col>
+              <!--Display ModelVariants --> 
+              <v-col cols="11" md="11" >
+                      <input 
+                      v-for="each in ModelVariants" 
+                      :key="each.ModelVariantId" 
+                      readonly
+                      required
+                      class="toggleButton"
+                      :class="{ activeVariant: activeindex1 == each.ModelVariantId }"
+                      v-on:click="setActive(each.ModelVariantId, 'Variants'); getModelVariants(each.Name)" 
+                      :placeholder="each.Name"
+                    >
+              </v-col>
+          </v-row>
+
+      <!--  row Number 6-->
+      <v-row   v-if="!equipmentLine">
+            <v-col cols="12" md="2" align="center" justify="center">
+                <v-tooltip  left color="grey lighten-5"  >
+                      <template v-slot:activator="{ on }" >
+                        <font-awesome-icon icon="sliders-h" class="tooltip-h" size="2x" v-on="on"/>
+                      </template>
+                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
+                  </v-tooltip>
+            </v-col>
+          <!-- Button verursacht neuladen der Seite, nur input oder div-->
+            <v-col cols="10" md="10" >
+                  <input
+                    v-for="each in EquipmentLines" 
+                    :key="each.EquipmentLineId"
+                    readonly
+                    required 
+                    :placeholder="each.Name"
+                    :class="{ activeVariant: activeindex2 == each.EquipmentLineId }"
+                    class="toggleButton"
+                    v-on:click="setActive(each.EquipmentLineId, 'EqLines'); getEquipmentLines(each.Name)"
+                  >
+              </v-col>  
       </v-row>
 
-    <!-- Import and Display Calendar Component-->  
-    <BookingCalendar  @buttonDisabled="buttonDisabled = $event" 
-    @startDate="startDate = $event"
-     @endDate="endDate = $event" 
-     :range.sync="calendarRange"/>
-        
-      <!-- Fourth row -->
-    <v-row>
-      <v-col cols="2"  align="center" justify="center" >
-             <v-tooltip left color="grey lighten-5"  >
-                <template v-slot:activator="{ on }" >
-                  <font-awesome-icon icon="map-marker-alt" class="tooltip" size="2x" v-on="on"/>
-                </template>
-                <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
-             </v-tooltip>
+      <!--  row Number 7-->
+      <v-row >
+        <v-col cols="1" md="1"></v-col>
+        <TotalSum/>   
+      </v-row>
 
-      <!--Display locations --> 
-      </v-col>
-      <v-col cols="10" class="dropdown" >
-           <select  @input="handleSelect($event)" v-model="SelectCarForm.SiteName" required >
-           <option  value="" selected disabled hidden > Stadt auswählen </option>
-           <option v-for="item in getSites"
-           :key="item.SiteId" :value="item.Name">
-           {{ item.Name }}
-           </option>
-        </select> 
-     </v-col> 
-        
-    </v-row> 
-
-    <!--  row Number 5-->
-    <v-row  v-if="!modelVariant">
-        <v-col cols="2" align="center" justify="center" md="2">
-           <v-tooltip left color="grey lighten-5"  >
-                <template  v-slot:activator="{ on }" >
-                  <font-awesome-icon icon="car-battery" class="tooltip-h" size="2x" v-on="on"/>
-                </template>
-                <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,</span>
-             </v-tooltip>
-        </v-col>
-        <!--Display ModelVariants --> 
-        <v-col cols="10" md="10" >
-                <input 
-                v-for="each in ModelVariants" 
-                :key="each.ModelVariantId" 
-                readonly
-                required
-                class="toggleButton"
-                :class="{ activeVariant: activeindex1 == each.ModelVariantId }"
-                v-on:click="setActive(each.ModelVariantId, 'Variants'); getModelVariants(each.Name)" 
-                :placeholder="each.Name"
-              >
-         </v-col>
-    </v-row>
-
-<!--  row Number 6-->
-<v-row   v-if="!equipmentLine">
-      <v-col cols="12" md="2" align="center" justify="center">
-           <v-tooltip  left color="grey lighten-5"  >
-                <template v-slot:activator="{ on }" >
-                  <font-awesome-icon icon="sliders-h" class="tooltip-h" size="2x" v-on="on"/>
-                </template>
-                <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
-            </v-tooltip>
-       </v-col>
-    <!-- Button verursacht neuladen der Seite, nur input oder div-->
-      <v-col cols="10" md="10" >
-            <input
-               v-for="each in EquipmentLines" 
-               :key="each.EquipmentLineId"
-               readonly
-               required 
-               :placeholder="each.Name"
-               :class="{ activeVariant: activeindex2 == each.EquipmentLineId }"
-               class="toggleButton"
-               v-on:click="setActive(each.EquipmentLineId, 'EqLines'); getEquipmentLines(each.Name)"
-            >
-        </v-col>  
-</v-row>
-
-<!--  row Number 7-->
-<v-row >
-  <v-col cols="2" md="2"></v-col>
-   <TotalSum/>   
-</v-row>
-
-</v-form>
-
-
-  <!-- Import and display TotalSum Component (Gesamtpreis) --> 
-
-<v-row >
-  <v-col offset-md="2" >
+      <v-row >
+  <v-col offset-md="1" >
      <v-btn @click="navigateToHome"
           color="white" block 
           class="sameheight"
@@ -174,6 +169,15 @@
   </v-col>
       
 </v-row>
+
+      </v-form>
+     </div>
+    
+
+
+  <!-- Import and display TotalSum Component (Gesamtpreis) --> 
+
+
          
 </div>   
 </template>

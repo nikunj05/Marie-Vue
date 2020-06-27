@@ -80,5 +80,22 @@ accent: #4C9F8D // The secondary color of your brand
     }
 }
 
+.container {
+  width: 100% !important;
+}
+
+
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: 926px !important;
+  }
+
+  .inner-container {
+    width: 630px;
+    margin:0 auto;
+  }
+}
+
+
 
 

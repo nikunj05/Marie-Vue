@@ -1,5 +1,6 @@
 <template>
-     <v-col cols="10" md="10"  >
+     
+     <v-col cols="11" md="11"  >
           <v-card class="mx-auto" max-width="100%">
             <v-card-text style="height: 100% ">
               <div>

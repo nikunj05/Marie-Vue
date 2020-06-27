@@ -1,7 +1,7 @@
 <template>
-
+  <div class="inner-container">
     <v-row>
-          <v-col cols="2" align="center" justify="center" >
+          <v-col cols="1" align="center" justify="center" >
              <v-tooltip  left color="grey lighten-5"  >
                 <template v-slot:activator="{ on }" >
                     <font-awesome-icon icon="calendar-alt" class="tooltip" size="2x" v-on="on"/>
@@ -11,7 +11,7 @@
                   sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</span>
              </v-tooltip>
           </v-col>
-          <v-col cols="10 calendarmain">
+          <v-col cols="11 calendarmain">
             <vc-date-picker
                     :attributes="attributes"
                     mode='range'
@@ -63,7 +63,7 @@
             </v-alert>
           </v-col>
     </v-row>    
-              <!-- :value="alert" Mind-date disables that user can book in the history, earlier than today-->
+  </div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
 <div>
   <v-row justify="center" align="center">
-<v-col cols="8" class="show-cars" align="center" justify="center">
+<v-col cols="12" class="show-cars" align="center" justify="center">
  <v-row align="center">
    <router-link
         tag="div" 

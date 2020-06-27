@@ -1,4 +1,5 @@
 <template>
+<div class="inner-container">
   <div class="bookingForm">
 
     <!-- 1 row -->
@@ -173,12 +174,9 @@
         </v-col>
         </v-row>
        </v-row>
-
-
-
-     
-    
   </div>
+</div>
+  
 </template>
 
 <script>

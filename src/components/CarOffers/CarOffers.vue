@@ -1,6 +1,7 @@
 <template>
   <div class="app">
-    <v-row>
+    <div class="inner-container">
+      <v-row>
       <v-col cols="1" class="pb-5"></v-col>
       <v-col cols="11" class="pl-6 pb-5">
         <v-card>
@@ -72,11 +73,10 @@
 
                 <v-col cols="3" class="pt-0 pb-0" style="position: relative;">
                   <v-avatar
-                    class="ma-0"
+                    class="ma-0 carright"
                     height="auto"
                     width="250"
                     tile
-                    style="position: absolute; left: -40px;"
                   >
                     <v-img :src="AutoTimeMatch.src" contain></v-img>
                   </v-avatar>
@@ -134,11 +134,10 @@
                 </v-col>
                 <v-col cols="3" class="pt-0 pb-0" style="position: relative;">
                   <v-avatar
-                    class="ma-0"
+                    class="ma-0 carright"
                     height="auto"
                     width="250"
                     tile
-                    style="position: absolute; left: -40px;"
                   >
                     <v-img :src="nearLocation.src" contain></v-img>
                   </v-avatar>
@@ -193,11 +192,10 @@
 
                 <v-col cols="3" class="pt-0 pb-0" style="position: relative;">
                   <v-avatar
-                    class="ma-0"
+                    class="ma-0 carright"
                     height="auto"
                     width="250"
-                    tile
-                    style="position: absolute; left: -40px;"
+                    tile 
                   >
                     <v-img :src="similarCar.src" contain></v-img>
                   </v-avatar>
@@ -217,6 +215,8 @@
           <v-btn large block color="teal darken-1" dark @click="navigateToDetails">Weiter</v-btn>
       </v-col>-->
     </v-row>
+    </div>
+    
   </div>
 </template>
 

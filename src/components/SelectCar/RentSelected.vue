@@ -1,8 +1,8 @@
 <template>
      <!-- First row -->
       <v-row>
-          <v-col  cols="2" style="color: black"> </v-col>
-               <v-col  cols="10" >
+          <v-col  cols="1" style="color: black"> </v-col>
+               <v-col  cols="11" >
                   <v-card
                     class="d-flex mx-auto" 
                     

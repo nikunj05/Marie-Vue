@@ -1,4 +1,5 @@
 <template>
+<div class="inner-container">
   <div class="cardetails-main">
       <!-- 1 row -->
 
@@ -217,6 +218,8 @@
         </v-col>
       </v-row>
   </div>
+</div>
+  
 </template>
 
 <script>
