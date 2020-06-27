@@ -1,5 +1,5 @@
 <template>
-  <div class="inner-container">
+  <div>
     <v-row>
           <v-col cols="1" align="center" justify="center" >
              <v-tooltip  left color="grey lighten-5"  >

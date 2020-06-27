@@ -1,5 +1,5 @@
 <template>
-<div class="inner-container">
+<div class="inner-container-center">
   <div class="cardetails-main">
       <!-- 1 row -->
 

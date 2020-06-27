@@ -8,9 +8,9 @@
         
       </v-col>
       </v-row> -->
+     
       </div>
-      <div class="background-bottom">
-      </div>
+      
     </v-container>
   </v-app>
 </template>

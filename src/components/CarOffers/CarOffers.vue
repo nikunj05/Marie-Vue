@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <div class="inner-container">
+    <div class="inner-container-center">
       <v-row>
       <v-col cols="1" class="pb-5"></v-col>
       <v-col cols="11" class="pl-6 pb-5">

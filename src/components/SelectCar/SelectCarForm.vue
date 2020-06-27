@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-     <div class="inner-container">
+     <div class="inner-container-center">
        <v-form  
           ref="form"
           v-model="valid"
@@ -17,7 +17,7 @@
                       <template v-slot:activator="{ on }" >
                         <font-awesome-icon class="tooltip" icon="car"  size="2x" v-on="on"/>
                       </template>
-                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                      <span class="black--text ttcontent" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
                         sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
                   </v-tooltip>
               </v-col>
