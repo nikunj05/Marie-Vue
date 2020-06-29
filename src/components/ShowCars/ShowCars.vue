@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="inner-container-home">
   <v-row justify="center" align="center">
 <v-col cols="12" class="show-cars" align="center" justify="center">
  <v-row align="center">
