@@ -16,7 +16,7 @@
 
       <!-- 2 row -->
       <v-row >
-        <v-col cols="1" align="center" justify="center">
+        <v-col cols="1" align="right" justify="right">
           <v-tooltip left color="grey lighten-5">
             <template v-slot:activator="{ on }">
               <font-awesome-icon icon="info-circle" class="tooltip-d" size="2x" v-on="on" />
@@ -45,7 +45,7 @@
       <!-- 3 row -->
 
       <v-row>
-        <v-col cols="1" align="center" justify="center">
+        <v-col cols="1" align="right" justify="right">
           <v-tooltip left color="grey lighten-5">
             <template v-slot:activator="{ on }">
               <font-awesome-icon icon="info-circle" class="tooltip-d" size="2x" v-on="on" />
@@ -58,7 +58,7 @@
           </v-tooltip>
         </v-col>
 
-        <v-col cols="11" align="center" justify="center">
+        <v-col cols="11" align="right" justify="right">
           <v-select
             :items="items"
             :menu-props="{ bottom: true, offsetY: true }"
@@ -84,7 +84,7 @@
 
       <!-- 5 row -->
       <v-row  >
-        <v-col cols="1" align="center" justify="center">
+        <v-col cols="1" align="right" justify="right">
           <v-tooltip left color="grey lighten-5">
             <template v-slot:activator="{ on }">
               <font-awesome-icon icon="info-circle" class="tooltip-d" size="2x" v-on="on" />
@@ -113,7 +113,7 @@
       <!-- 6 row -->
 
       <v-row  >
-        <v-col cols="1">
+        <v-col cols="1" align="right" justify="right">
            <v-tooltip left color="grey lighten-5">
             <template v-slot:activator="{ on }">
               <font-awesome-icon icon="info-circle" class="tooltip-d" size="2x" v-on="on" />
@@ -145,7 +145,7 @@
 
    <!-- 7 row -->
      <v-row  >
-        <v-col cols="1">
+        <v-col cols="1" align="right" justify="right">
            <v-tooltip left color="grey lighten-5">
             <template v-slot:activator="{ on }">
               <font-awesome-icon icon="info-circle" class="tooltip-d" size="2x" v-on="on" />

@@ -3,7 +3,7 @@
     <div class="inner-container-center">
       <v-row>
       <v-col cols="1" class="pb-5"></v-col>
-      <v-col cols="11" class="pl-6 pb-5">
+      <v-col cols="11" class=" pb-5">
         <v-card>
           <v-card-title class="font-weight-medium subtitle-2">Leider ihre Auswahl nicht verfügbar</v-card-title>
           <v-card-subtitle>Dennoch möchten wir Ihnen ähnliche Alternativoptionen anbieten:</v-card-subtitle>
@@ -13,7 +13,7 @@
 
     <!-- Auto und ausgewählte Zeit sind am meisten ähnlich Wunsche der Kunde -->
     <v-row>
-      <v-col cols="1" class="pt-5 pb-5">
+      <v-col align="right" cols="1" class="pt-5 pb-5">
         <v-tooltip left color="grey lighten-5">
           <template v-slot:activator="{ on }">
             <font-awesome-icon :icon="icons.calendar" class="tooltip-o" size="2x" v-on="on" />
@@ -29,7 +29,6 @@
             <font-awesome-icon
               :icon="icons.lineType"
               class="tooltip-o"
-              style=" paddingRight: 5px;"
               size="2x"
               v-on="on"
             />
@@ -41,7 +40,7 @@
         </v-tooltip>
       </v-col>
 
-      <v-col cols="11" class="pl-6 pt-5 pb-5">
+      <v-col cols="11" class="pt-5 pb-5">
         <router-link
           tag="div"
           class="v-card"
@@ -91,7 +90,7 @@
     <!--- Die gewünschte Lokation der Kunde   --->
 
     <v-row>
-      <v-col cols="1" class="pt-5 pb-5">
+      <v-col align="right" cols="1" class="pt-5 pb-5">
         <v-tooltip left color="grey lighten-5">
           <template v-slot:activator="{ on }">
             <font-awesome-icon :icon="icons.location" class="tooltip-o" size="2x" v-on="on" />
@@ -103,7 +102,7 @@
         </v-tooltip>
       </v-col>
 
-      <v-col cols="11" class="pl-6 pt-5 pb-5">
+      <v-col cols="11" class=" pt-5 pb-5">
         <router-link
           tag="div"
           class="v-card"
@@ -151,7 +150,7 @@
 
     <!-- Auto ist ähnlich Wunschde der Kunde-->
     <v-row>
-      <v-col cols="1" class="pt-5 pb-5">
+      <v-col align="right" cols="1" class="pt-5 pb-5">
         <v-tooltip left color="grey lighten-5">
           <template v-slot:activator="{ on }">
             <font-awesome-icon :icon="icons.car" class="tooltip-o" size="2x" v-on="on" />
@@ -160,7 +159,7 @@
         </v-tooltip>
       </v-col>
 
-      <v-col cols="11" class="pl-6 pt-5 pb-5">
+      <v-col cols="11" class=" pt-5 pb-5">
         <router-link
           tag="div"
           class="v-card"
@@ -208,10 +207,10 @@
     </v-row>
 
     <v-row>
-      <v-col cols="6" offset="1" class="pl-6">
+      <v-col cols="6" offset="1" class="">
         <v-btn class="sameheight" large block color="white" @click="navigateToHome">Züruck</v-btn>
       </v-col>
-      <!-- <v-col cols="11" class="pl-6" md="5">
+      <!-- <v-col cols="11" class="" md="5">
           <v-btn large block color="teal darken-1" dark @click="navigateToDetails">Weiter</v-btn>
       </v-col>-->
     </v-row>

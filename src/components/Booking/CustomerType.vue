@@ -1,8 +1,10 @@
 <template>
-  <v-row justify="center">
-    <v-row justify="start"  style="width: 100%;">
-       <v-col cols="10" md="3"  >
-         <button large block 
+<div>
+    <!-- <v-row justify="start"> -->
+       <v-col offset-md="1" cols="11" class="pt-0 pb-8 ">
+         <v-row>
+         <v-col class="pr-0">
+         <button block 
              color="white" 
              class=" font-weight-regular toggleButton"
              v-on:click="toggleClass1" v-bind:class="{active: isActive1}"
@@ -11,8 +13,8 @@
          </v-col>
 
           <!-- <v-spacer></v-spacer> -->
-          <v-col cols="10" md="3" >
-            <button  large color="white" 
+          <v-col class="pl-0 pr-0">
+            <button color="white" 
                block  
                class=" font-weight-regular toggleButton"
                v-on:click="toggleClass2" 
@@ -20,32 +22,34 @@
                >Firmenkunde
             </button>
           </v-col> 
+         </v-row>
+       </v-col>
 
-            <v-col cols="12" md="12">
+            <v-col cols="11" offset-md="1" class="pr-0" v-if="compCustomer">
              <v-text-field 
                 solo label="Firmenname"
                 name="companyName"
-                v-if="compCustomer"
+                
                 type="text" v-model="companyName" 
                 @keyup="$emit('update:companyName', companyName)"
                  :rules="[v => !!v || 'Dieses Feld ist erforderlich']"
                 required
+                hide-details
                 ></v-text-field>
            </v-col>
       
 
-          
-    </v-row>    
+</div>
+    <!-- </v-row>     -->
 
  
     
-  </v-row>
 </template>
 
 <script>
 export default {
   data: () => ({
-     isActive1: false,
+     isActive1: true,
       isActive2: false,
       compCustomer: false,
       companyName: '',

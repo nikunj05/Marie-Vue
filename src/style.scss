@@ -1,8 +1,12 @@
 @import "~vue-material/dist/theme/engine";
-@include md-register-theme("default", (
-primary:  #a0c519, // The primary color of your brand
-accent: #4C9F8D // The secondary color of your brand
-));
+@include md-register-theme(
+  "default",
+  (
+    primary: #a0c519,
+    // The primary color of your brand
+      accent: #4c9f8d // The secondary color of your brand,,
+  )
+);
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 .background {
@@ -11,23 +15,17 @@ accent: #4C9F8D // The secondary color of your brand
   //background-image: url(assets/background1.svg);
   background-image: url(assets/background.png);
   background-position: 80% 0;
-  
 }
 
 .md-layout-item {
-    margin-top: 40px;
- 
+  margin-top: 40px;
 }
 
 // .background-bottom {
- 
+
 // }
 
-
 //Boking/BookingForm styles
-.bookingForm {
-  padding: 25px;
-}
 
 .calendarmain .vc-container {
   width: 100% !important;
@@ -47,9 +45,10 @@ accent: #4C9F8D // The secondary color of your brand
   display: flex !important;
 }
 
-.white.sameheight,.sameheight  {
+.white.sameheight,
+.sameheight {
   height: 76px !important;
-  border: 1px solid #4A9F8D !important;
+  border: 1px solid #4a9f8d !important;
 }
 
 .white.sameheight {
@@ -58,27 +57,25 @@ accent: #4C9F8D // The secondary color of your brand
 
 @media only screen and (max-width: 600px) {
   .tooltip-o {
-      position: relative;
-      margin-left: 45%;
-      margin-top: 0.5rem;
-      color:gray
-    }
+    position: relative;
+    margin-top: 0.5rem;
+    color: gray;
+  }
 }
 // CarDetails
 
 .tooltip-d {
   position: relative;
-  margin-left: 45%;
   margin-top: 0.5rem;
-  color:gray
+  color: gray;
 }
 
 @media only screen and (max-width: 600px) {
   .tooltip-d {
-      position: relative;
-      margin-top: 0.5rem;
-      color:gray
-    }
+    position: relative;
+    margin-top: 0.5rem;
+    color: gray;
+  }
 }
 
 .container {
@@ -103,14 +100,15 @@ accent: #4C9F8D // The secondary color of your brand
 //   right: -10px;
 // }
 
-@media screen and (min-width: 1408px) {
+@media screen and (min-width: 1216px) {
   .container {
     max-width: 926px !important;
   }
 
   .inner-container-center {
     width: 630px;
-    margin:0 auto;
+    min-height: 1466px;
+    margin: 0 auto;
     padding-top: 40px;
     background-image: url(assets/bg.png);
     background-position: 100% 100%;
@@ -122,14 +120,39 @@ accent: #4C9F8D // The secondary color of your brand
 
 .inner-container-home {
   padding-top: 40px;
-    background-image: url(assets/bg.png);
-    background-position: 100% 100%;
-    background-size: contain;
-    padding-bottom: 140px;
-    background-repeat: no-repeat;
+  background-image: url(assets/bg.png);
+  background-position: 100% 100%;
+  background-size: contain;
+  padding-bottom: 140px;
+  background-repeat: no-repeat;
 }
 
+.booking-car-detail-card-title {
+  font-size: 20px;
+  line-height: 24px;
+  b {
+    a {
+      color: rgba(0, 0, 0, 0.6) !important;
+      text-decoration: underline;
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+}
 
+.booking-car-detail-card-detail {
+  a {
+    color: rgba(0, 0, 0, 0.6) !important;
+    text-decoration: underline;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
 
-
-
+.thank-you-page-detail {
+  p {
+    font-weight: bold;
+  }
+}

@@ -3,14 +3,12 @@
 }
 .tooltip {
   position: relative;
-  margin-left: 75%;
   margin-top: 0.5rem;
   color:gray
 }
 
 .tooltip-h {
   position: relative;
-  margin-left: 75%;
   margin-top: 1rem;
   color:gray
 }
@@ -87,6 +85,7 @@ input.activeVariant {
           opacity: 1; /* Firefox */
         }
     }
+    width: 100%;
     font-size: 15px;
     color: rgb(121, 120, 120);
     padding: 12px 42px;
@@ -101,9 +100,6 @@ input.activeVariant {
     border-radius: 3px;
  }
 
- .toggleButton:nth-child(odd) {
-  margin-right: 40px;
-}
 
 .arrowButton{
   position: relative;

@@ -27,9 +27,9 @@
                     >
               </vc-date-picker>
           </v-col>
-          <v-col  cols="2" style="color: black"> </v-col>
+          <v-col  cols="1" style="color: black"> </v-col>
           <!--<button  > khdfghfs  {{getWeekend()}}</button>  -->
-          <v-col cols="10">
+          <v-col cols="11">
               <v-alert  
               v-if="alert"
                   dense
@@ -40,8 +40,8 @@
                   <span style="fontSize: 12px	"> Buchung nur unter Vorbehalt möglich. Aufpreis: 150, -€ </span>
             </v-alert>
           </v-col>
-          <v-col  cols="2" > </v-col>
-          <v-col cols="10">
+          <v-col  cols="1" > </v-col>
+          <v-col cols="11">
               <v-alert  
               v-if="lateBookingWarning"
                   dense
@@ -51,8 +51,8 @@
                   <span style="fontSize: 12px	"> Bei Buchung das beginnt 3 Monate später muss mindestlaufzeit ein Monat oder länger sein</span>
             </v-alert>
           </v-col>
-          <v-col  cols="2" > </v-col>
-          <v-col cols="10">
+          <v-col  cols="1" > </v-col>
+          <v-col cols="11">
               <v-alert  
               v-if="minRange"
                   dense

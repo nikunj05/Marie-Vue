@@ -12,7 +12,7 @@
 
             <!-- Second row -->
             <v-row>
-              <v-col cols="1" align="center" justify="center" >
+              <v-col cols="1" align="right" justify="center" >
                   <v-tooltip left color="grey lighten-5"  >
                       <template v-slot:activator="{ on }" >
                         <font-awesome-icon class="tooltip" icon="car"  size="2x" v-on="on"/>
@@ -46,7 +46,7 @@
               
             <!-- Fourth row -->
           <v-row>
-            <v-col cols="1"  align="center" justify="center" >
+            <v-col cols="1"  align="right" justify="center" >
                   <v-tooltip left color="grey lighten-5"  >
                       <template v-slot:activator="{ on }" >
                         <font-awesome-icon icon="map-marker-alt" class="tooltip" size="2x" v-on="on"/>
@@ -71,7 +71,7 @@
 
           <!--  row Number 5-->
           <v-row  v-if="!modelVariant">
-              <v-col cols="1" align="center" justify="center" md="2">
+              <v-col cols="1" align="right" justify="center" md="2">
                 <v-tooltip left color="grey lighten-5"  >
                       <template  v-slot:activator="{ on }" >
                         <font-awesome-icon icon="car-battery" class="tooltip-h" size="2x" v-on="on"/>
@@ -97,7 +97,7 @@
 
       <!--  row Number 6-->
       <v-row   v-if="!equipmentLine">
-            <v-col cols="12" md="2" align="center" justify="center">
+            <v-col cols="12" md="2" align="right" justify="center">
                 <v-tooltip  left color="grey lighten-5"  >
                       <template v-slot:activator="{ on }" >
                         <font-awesome-icon icon="sliders-h" class="tooltip-h" size="2x" v-on="on"/>
