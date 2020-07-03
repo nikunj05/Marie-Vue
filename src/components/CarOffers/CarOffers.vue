@@ -1,6 +1,7 @@
 <template>
   <div class="app">
-    <div class="inner-container-center">
+    <div class="inner-container-center car-offer">
+      <img class="top-bg" :src="require('@/assets/background.png')" />
       <v-row>
       <v-col cols="1" class="pb-5"></v-col>
       <v-col cols="11" class=" pb-5">
@@ -166,8 +167,8 @@
           :to="'/offered-cars/'+similarCar.id"
           style="cursor: pointer"
         >
-          <v-card>
-            <v-card-text>
+          <v-card style="z-index: 5">
+            <v-card-text >
               <v-row>
                 <v-col cols="9" class="pt-0 pb-0">
                   <div class="body-2">
@@ -195,6 +196,7 @@
                     height="auto"
                     width="250"
                     tile 
+                    style="z-index: 5"
                   >
                     <v-img :src="similarCar.src" contain></v-img>
                   </v-avatar>
@@ -208,12 +210,13 @@
 
     <v-row>
       <v-col cols="6" offset="1" class="">
-        <v-btn class="sameheight" large block color="white" @click="navigateToHome">Züruck</v-btn>
+        <v-btn class="sameheight" large block color="white" style="z-index: 5" @click="navigateToHome">Züruck</v-btn>
       </v-col>
       <!-- <v-col cols="11" class="" md="5">
           <v-btn large block color="teal darken-1" dark @click="navigateToDetails">Weiter</v-btn>
       </v-col>-->
     </v-row>
+    <img class="bottom-bg" :src="require('@/assets/bg.png')" />
     </div>
     
   </div>

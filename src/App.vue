@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-container fluid center >
-      <div class="background">
+    <v-container fluid center class="pa-0">
+      <!-- <div class="background"> -->
         <router-view> </router-view>
       <!-- <v-row justify="center" align="center">
       <v-col cols="12" md="8">
@@ -9,7 +9,7 @@
       </v-col>
       </v-row> -->
      
-      </div>
+      <!-- </div> -->
       
     </v-container>
   </v-app>

@@ -1,5 +1,6 @@
 <template>
-<div class="inner-container-center">
+<div class="inner-container-center car-details">
+  <img class="top-bg" :src="require('@/assets/background.png')" />
   <div class="cardetails-main">
       <!-- 1 row -->
 
@@ -158,8 +159,8 @@
           </v-tooltip>
         </v-col>
 
-      <v-col>
-        <v-textarea solo name="input-7-4" label="Anmerkungen"></v-textarea>
+      <v-col style="z-index: 5" >
+        <v-textarea style="z-index: 5"  solo name="input-7-4" label="Anmerkungen"></v-textarea>
       </v-col>
      </v-row>
 
@@ -169,7 +170,7 @@
          <v-col cols="1"></v-col>
 
          <v-col cols="11">
-        <v-card class="mx-auto fullwidth" max-width="100%">
+        <v-card class="mx-auto fullwidth" max-width="100%" style="z-index: 5">
           <v-card-text>
             <div>
               <span style="float:left">Gesamtpreis:</span>
@@ -201,6 +202,7 @@
           class="sameheight"
           large
           exact
+          style="z-index: 5"
           >Züruck
           </v-btn>
         </v-col>
@@ -212,12 +214,14 @@
           block large
           exact
           dark
+          style="z-index: 5"
           >
            Weiter
           </v-btn>
         </v-col>
       </v-row>
   </div>
+  <img class="bottom-bg" :src="require('@/assets/bg.png')" />
 </div>
   
 </template>

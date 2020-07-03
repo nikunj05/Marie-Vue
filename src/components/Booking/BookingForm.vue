@@ -1,5 +1,6 @@
 <template>
-  <div class="inner-container-center">
+  <div class="inner-container-center booking-form">
+    <img class="top-bg" :src="require('@/assets/background.png')" />
     <!-- 1 row -->
     <v-col offset-md="1" cols="11" class="pr-0 pb-0">
       <v-card class="mx-auto">
@@ -91,7 +92,7 @@
 
       <v-col offset-md="1" cols="11" class="pt-0 pb-0">
         <v-row>
-          <v-col>
+          <v-col style="z-index: 5">
             <v-text-field
               solo
               label="Straße"
@@ -103,7 +104,7 @@
             ></v-text-field>
           </v-col>
 
-          <v-col class="pr-0">
+          <v-col class="pr-0" style="z-index: 5">
             <v-text-field
               solo
               label="Hausnummer"
@@ -120,7 +121,7 @@
 
       <v-col offset-md="1" cols="11" class="pt-0 pb-0">
         <v-row>
-          <v-col>
+          <v-col style="z-index: 5">
             <v-text-field
               :rules="formRules"
               name="postcode"
@@ -133,7 +134,7 @@
             ></v-text-field>
           </v-col>
 
-          <v-col class="pr-0">
+          <v-col class="pr-0" style="z-index: 5">
             <v-text-field
               solo
               label="Ort"
@@ -149,7 +150,7 @@
 
       <v-col offset-md="1" cols="11" class="pt-0 pb-0">
         <v-row>
-          <v-col class="pr-0">
+          <v-col class="pr-0" style="z-index: 5">
             <Countries :country.sync="countryData" />
           </v-col>
         </v-row>
@@ -159,11 +160,12 @@
     <v-col offset-md="1" cols="11" class="pt-0 pb-0">
       <v-row justify="end">
         <v-col>
-          <v-btn @click="navigateOffers" color="white" block class="sameheight" large exact>Züruck</v-btn>
+          <v-btn style="z-index: 5" @click="navigateOffers" color="white" block class="sameheight" large exact>Züruck</v-btn>
         </v-col>
 
         <v-col class="pr-0">
           <v-btn
+          style="z-index: 5"
             @click="validate"
             color="teal darken-1"
             class="sameheight"
@@ -175,6 +177,7 @@
         </v-col>
       </v-row>
     </v-col>
+    <img class="bottom-bg" :src="require('@/assets/bg.png')" />
   </div>
 </template>
 

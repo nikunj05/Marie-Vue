@@ -3,7 +3,7 @@
     <!-- <v-row justify="start"> -->
        <v-col offset-md="1" cols="11" class="pt-0 pb-8 ">
          <v-row>
-         <v-col class="pr-0">
+         <v-col class="pr-0" style="z-index: 5">
          <button block 
              color="white" 
              class=" font-weight-regular toggleButton"
@@ -13,7 +13,7 @@
          </v-col>
 
           <!-- <v-spacer></v-spacer> -->
-          <v-col class="pl-0 pr-0">
+          <v-col class="pl-0 pr-0" style="z-index: 5">
             <button color="white" 
                block  
                class=" font-weight-regular toggleButton"

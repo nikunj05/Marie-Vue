@@ -1,7 +1,7 @@
 <template>
      
      <v-col cols="11" md="11"  >
-          <v-card class="mx-auto" max-width="100%">
+          <v-card class="mx-auto" max-width="100%" style="z-index: 5">
             <v-card-text style="height: 100% ">
               <div>
                 <span style="float:left">Gesamtpreis:</span>

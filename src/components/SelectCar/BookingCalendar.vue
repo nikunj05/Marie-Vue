@@ -27,36 +27,39 @@
                     >
               </vc-date-picker>
           </v-col>
-          <v-col  cols="1" style="color: black"> </v-col>
+          <v-col  cols="1" style="color: black" v-if="alert"> </v-col>
           <!--<button  > khdfghfs  {{getWeekend()}}</button>  -->
-          <v-col cols="11">
+          <v-col cols="11" v-if="alert">
               <v-alert  
               v-if="alert"
                   dense
                   :value="alert"
                   outlined
+                  style="z-index: 5"
                   type="error">
                   Abholung außerhalb der Öffnungszeiten <br>
                   <span style="fontSize: 12px	"> Buchung nur unter Vorbehalt möglich. Aufpreis: 150, -€ </span>
             </v-alert>
           </v-col>
-          <v-col  cols="1" > </v-col>
-          <v-col cols="11">
+          <v-col  cols="1" v-if="lateBookingWarning"> </v-col>
+          <v-col cols="11" v-if="lateBookingWarning">
               <v-alert  
               v-if="lateBookingWarning"
                   dense
                   outlined
+                  style="z-index: 5"
                   type="warning">
                   Bei Buchung das beginnt 3 Monate später <br>
                   <span style="fontSize: 12px	"> Bei Buchung das beginnt 3 Monate später muss mindestlaufzeit ein Monat oder länger sein</span>
             </v-alert>
           </v-col>
-          <v-col  cols="1" > </v-col>
-          <v-col cols="11">
+          <v-col  cols="1" v-if="minRange"> </v-col>
+          <v-col cols="11" v-if="minRange">
               <v-alert  
               v-if="minRange"
                   dense
                   outlined
+                  style="z-index: 5"
                   type="warning">
                   Augewählte Zeit ist weinger als 1 Tag<br>
                   <span style="fontSize: 12px	"> In diesem Fall wird Preis von 24 Stunden verrechnet?</span>

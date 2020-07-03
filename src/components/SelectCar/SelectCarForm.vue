@@ -1,6 +1,7 @@
 <template>
   <div class="app">
      <div class="inner-container-center">
+       <img class="top-bg" :src="require('@/assets/background.png')" />
        <v-form  
           ref="form"
           v-model="valid"
@@ -47,18 +48,18 @@
             <!-- Fourth row -->
           <v-row>
             <v-col cols="1"  align="right" justify="center" >
-                  <v-tooltip left color="grey lighten-5"  >
+                  <v-tooltip left color="grey lighten-5" style="z-index: 5" >
                       <template v-slot:activator="{ on }" >
-                        <font-awesome-icon icon="map-marker-alt" class="tooltip" size="2x" v-on="on"/>
+                        <font-awesome-icon icon="map-marker-alt" class="tooltip" size="2x" v-on="on" style="z-index: 5"/>
                       </template>
-                      <span class="black--text" style="width: 16rem; display: block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                      <span class="black--text" style="width: 16rem; display: block; z-index: 5;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
                         sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</span>
                   </v-tooltip>
 
             <!--Display locations --> 
             </v-col>
             <v-col cols="11" class="dropdown" >
-                <select  @input="handleSelect($event)" v-model="SelectCarForm.SiteName" required >
+                <select  @input="handleSelect($event)" v-model="SelectCarForm.SiteName" required style="z-index: 5">
                 <option  value="" selected disabled hidden > Stadt auswählen </option>
                 <option v-for="item in getSites"
                 :key="item.SiteId" :value="item.Name">
@@ -134,6 +135,7 @@
           class="sameheight"
           large
           exact
+          style="z-index: 5"
           >Züruck
           </v-btn>
   </v-col>
@@ -147,6 +149,7 @@
       @click="loader = 'loading'; validate(); navigateToCars() "
       :disabled="loading"
        v-if="!buttonDisabled"
+       style="z-index: 5"
     >
       Verfügbarkeit Prüfen
       <template v-slot:loader>
@@ -163,6 +166,7 @@
         @click="validate();" 
         v-if="buttonDisabled"
       class="white--text"
+      style="z-index: 5"
     >
       Verfügbarkeit Prüfen
     </v-btn>
@@ -171,6 +175,7 @@
 </v-row>
 
       </v-form>
+      <img class="bottom-bg" :src="require('@/assets/bg.png')" />
      </div>
     
 

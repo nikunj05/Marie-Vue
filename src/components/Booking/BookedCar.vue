@@ -1,5 +1,6 @@
 <template>
-  <div class="inner-container-center">
+  <div class="inner-container-center booked-car">
+    <img class="top-bg" :src="require('@/assets/background.png')" />
     <!-- 1 row -->
     <v-col offset-md="1" cols="11" class="pr-0 pb-0">
       <v-card class="mx-auto">
@@ -74,6 +75,7 @@
         </v-col>
       </v-row>
     </v-col>
+    <img class="bottom-bg" :src="require('@/assets/bg.png')" />
   </div>
 </template>
 

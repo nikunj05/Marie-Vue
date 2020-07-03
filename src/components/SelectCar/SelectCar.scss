@@ -104,8 +104,8 @@ input.activeVariant {
 .arrowButton{
   position: relative;
   display: inline-flex;
-  top: 20px;
-  bottom: 0;
+  // top: 20px;
+  // bottom: 0;
 }
 
 .arrowBody {
@@ -118,7 +118,7 @@ input.activeVariant {
 }
 .arrowIcon {
   position: absolute;
-  top: 10px;
+  top: 15px;
   bottom: 0;
   right: 10px;
 }
